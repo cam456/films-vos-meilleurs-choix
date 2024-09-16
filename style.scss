@@ -1,1 +1,42 @@
 @use 'partials/top-picks';
+
+@import 'partials/variables';
+
+@import 'partials/mixins/text';
+
+@mixin apply-primary-background {
+    background-color: $primary;
+}
+  
+body {
+    @include apply-primary-background;
+}
+
+@mixin apply-font-style {
+    font-variant: small-caps;
+} 
+
+.top-picks { 
+    @include apply-font-style;
+    background-color: lighten($primary, 5%);
+    color: white;
+}
+
+.card {
+    margin: 5px ;
+    margin-inline: 5px;
+
+    .card__btn {
+        margin-top: 5px;
+        border: 0px;
+        width:100%;
+        @include apply-primary-background;
+        color: complement($primary);
+        @include apply-font-style;
+
+    }
+    .card__btn:hover { 
+        background-color: lighten($primary, 25%);
+    }
+
+ }
